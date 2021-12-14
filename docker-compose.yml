@@ -1,0 +1,14 @@
+version: "3"
+
+services:
+  docs:
+    build:
+      context: './docs'
+    image: te-sh/procon-docs
+    container_name: prodoc
+    ports:
+      - '8000:8000'
+    volumes:
+      - './docs:/app'
+      - '/app/node_modules'
+    command: ['yarn', 'start', '-H', '0.0.0.0']
