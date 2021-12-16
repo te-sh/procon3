@@ -22,7 +22,6 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
   }
 
   result.data.allMarkdownRemark.nodes.forEach(article => {
-    console.log(article)
     createPage({
       path: article.fields.slug,
       component: require.resolve("./src/templates/article.js"),
