@@ -17,6 +17,8 @@ services:
       context: './docs'
     image: te-sh/procon-docs
     container_name: prodoc
+    environment:
+      - GATSBY_TELEMETRY_DISABLED=1
     ports:
       - '8000:8000'
     volumes:
