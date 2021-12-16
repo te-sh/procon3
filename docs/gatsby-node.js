@@ -3,13 +3,6 @@ const { createFilePath } = require(`gatsby-source-filesystem`)
 exports.createPages = async ({ graphql, actions, reporter }) => {
   const { createPage } = actions
 
-  createPage({
-    path: "/using-dsg",
-    component: require.resolve("./src/templates/using-dsg.js"),
-    context: {},
-    defer: true,
-  })
-
   const result = await graphql(`
     query {
       allMarkdownRemark {
@@ -44,7 +37,7 @@ exports.onCreateNode = ({ node, getNode, actions }) => {
   const { createNodeField } = actions
 
   if (node.internal.type == `MarkdownRemark`) {
-    const value = createFilePath({ node, getNode })
+    const value = `/articles${createFilePath({ node, getNode })}`
     createNodeField({ name: `slug`, node, value })
   }
 }
