@@ -1,6 +1,17 @@
 version: "3"
 
 services:
+  judge:
+    build:
+      context: './judge'
+    image: te-sh/procon-judge
+    container_name: projdg
+    init: true
+    tty: true
+    volumes:
+      - './judge:/judge'
+      - './codes:/codes'
+    command: ['python', '/judge/judge.py']
   docs:
     build:
       context: './docs'
