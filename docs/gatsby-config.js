@@ -22,7 +22,19 @@ module.exports = {
         path: `${__dirname}/src/articles`,
       },
     },
-    `gatsby-transformer-remark`,
+    {
+      resolve: `gatsby-transformer-remark`,
+      options: {
+        plugins: [
+          {
+            resolve: `gatsby-remark-katex`,
+            options: {
+              strict: `ignore`
+            }
+          }
+        ],
+      },
+    },
     `gatsby-transformer-sharp`,
     `gatsby-plugin-sharp`,
     {

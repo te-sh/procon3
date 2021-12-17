@@ -2,7 +2,8 @@ FROM node:17.2.0-alpine3.14
 
 RUN apk update \
  && apk upgrade \
- && apk add git
+ && apk add git \
+ && npm install -g npm gatsby-cli
 
 ENV APPDIR /app
 RUN mkdir -p $APPDIR \
