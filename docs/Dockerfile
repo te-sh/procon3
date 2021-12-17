@@ -5,10 +5,11 @@ RUN apk update \
  && apk add git
 
 ENV APPDIR /app
-RUN mkdir -p $APPDIR
+RUN mkdir -p $APPDIR \
+ && chown node:node $APPDIR
 WORKDIR $APPDIR
 
-ADD package.json package-lock.json ./
+USER node
 
+ADD --chown=node:node package.json package-lock.json ./
 RUN npm install
-
