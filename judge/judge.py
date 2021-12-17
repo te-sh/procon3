@@ -53,10 +53,13 @@ class JudgeRunner:
 
         print('====================', self.path)
 
+        self.chdir()
+        url = self.get_url()
+        if url is None:
+            return
+
         try:
-            self.chdir()
-            url = self.get_url()
-            if url is None or self.url_memo.changed(url):
+            if self.url_memo.changed(url):
                 self.download(url)
                 self.url_memo.write(url)
             self.compile()
