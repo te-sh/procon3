@@ -9,23 +9,59 @@ from watchdog.events import FileSystemEventHandler
 from watchdog.observers import Observer
 
 
+class UrlMemo:
+    def __init__(self, path):
+        self.path = path.with_name('url')
+
+    def changed(self, url):
+        return url != self.read()
+
+    def read(self):
+        if self.path.exists():
+            return self.path.read_text()
+        else:
+            return None
+
+    def write(self, url):
+        self.path.write_text(url)
+
+class RunTimeMemo:
+    def __init__(self, path):
+        self.path = path.with_name('run_time')
+
+    def passed_time(self):
+        return time.time() - self.read() > 1
+
+    def read(self):
+        if self.path.exists():
+            return self.path.stat().st_mtime
+        else:
+            return 0
+
+    def write(self):
+        self.path.touch()
+
 class JudgeRunner:
     def __init__(self, path):
         self.path = path
-        self.url = path.with_name('url')
+        self.url_memo = UrlMemo(path)
+        self.run_time_memo = RunTimeMemo(path)
 
     def run(self):
-        print('====================', self.path)
-        self.chdir()
-
-        url = self.get_url()
-        if url is None:
+        if not self.run_time_memo.passed_time():
             return
 
+        print('====================', self.path)
+
         try:
-            self.download(url)
+            self.chdir()
+            url = self.get_url()
+            if self.url_memo.changed(url):
+                self.download(url)
+                self.url_memo.write(url)
             self.compile()
             self.test()
+            self.run_time_memo.write()
 
         except subprocess.CalledProcessError:
             None
@@ -42,23 +78,10 @@ class JudgeRunner:
         os.chdir(self.path.parent)
 
     def download(self, url):
-        prev_url = self.read_url_memo()
-        if url == prev_url:
-            return
         print('--- download')
-        shutil.rmtree('test', ignore_errors=True)
         print(f'$ oj download {url}')
+        shutil.rmtree('test', ignore_errors=True)
         subprocess.run(['oj', 'download', url], check=True)
-        self.write_url_memo(url)
-
-    def read_url_memo(self):
-        if self.url.exists():
-            return self.url.read_text()
-        else:
-            return None
-
-    def write_url_memo(self, url):
-        self.url.write_text(url)
 
     def compile(self):
         print('--- compile')
@@ -84,7 +107,7 @@ class ChangeHandler(FileSystemEventHandler):
         if not path.exists() or path.is_dir():
             return
 
-        if path.parent.name == 'test' or path.name == 'url' or path.name == 'a.out':
+        if path.parent.name == 'test' or path.name in {'url', 'run_time', 'a.out'}:
             return
 
         JudgeRunner(path).run()
