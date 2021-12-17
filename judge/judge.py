@@ -56,7 +56,7 @@ class JudgeRunner:
         try:
             self.chdir()
             url = self.get_url()
-            if self.url_memo.changed(url):
+            if url is None or self.url_memo.changed(url):
                 self.download(url)
                 self.url_memo.write(url)
             self.compile()
@@ -107,7 +107,10 @@ class ChangeHandler(FileSystemEventHandler):
         if not path.exists() or path.is_dir():
             return
 
-        if path.parent.name == 'test' or path.name in {'url', 'run_time', 'a.out'}:
+        if path.parent.name == 'test' or path.name in {'url', 'run_time', 'a.out'} or path.match('/code/lib/**/*'):
+            return
+
+        if re.match('^/codes/lib', str(path)) or re.match(r'^#.*#$', path.name):
             return
 
         JudgeRunner(path).run()

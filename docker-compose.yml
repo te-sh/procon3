@@ -11,7 +11,7 @@ services:
     volumes:
       - './judge:/judge'
       - './codes:/codes'
-    command: ['python', '/judge/judge.py']
+    command: ['./startup.sh']
   docs:
     build:
       context: './docs'
