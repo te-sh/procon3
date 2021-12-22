@@ -1,4 +1,4 @@
-# :::::::::::::::::::: procon/io
+# :::::::::::::::::::: procon/io/io
 #
 # 競技プログラミング用の読み書きを行います.
 #
@@ -40,6 +40,45 @@ class ProconIO
     {% end %}
   end
   define_getn
+
+  #
+  # 型を指定して横に並んだ配列の値を読み込みます
+  #
+  def get_a(n : Int, k : T.class = Int32) forall T
+    Array.new(n) { get_v(k) }
+  end
+
+  #
+  # 型を指定して縦に並んだ配列の値を読み込みます
+  #
+  def get_c(n : Int, k : T.class = Int32) forall T
+    get_a(n, k)
+  end
+
+  #
+  # 型を指定して縦に並んだ配列の複数の値を読み込みます
+  #
+  macro define_get_c
+    {% for i in (2..9) %}
+      def get_c(n : Int, {{ *(1..i).map { |j| "k#{j}".id } }})
+        a = Array.new(n) { get({{ *(1..i).map { |j| "k#{j}".id } }}) }
+        { {{ *(1..i).map { |j| "a.map { |e| e[#{j-1}] }".id } }} }
+      end
+    {% end %}
+  end
+  define_get_c
+
+  #
+  # 個数と型を指定して縦に並んだ配列の複数の値を読み込みます
+  #
+  macro define_getn_c
+    {% for i in (2..9) %}
+      def get{{i}}_c(n : Int, k : T.class = Int32) forall T
+        get_c(n, {{ *(1..i).map { "k".id } }})
+      end
+    {% end %}
+  end
+  define_getn_c
 
   # ---------- private methods
 
