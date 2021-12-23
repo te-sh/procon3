@@ -12,13 +12,14 @@ module UtilSpec
     it { a = 1; max_u(a, 0); a.should eq 1 }
   end
 
-  record Rec, a : Int32, b : String
+  record Rec, a : Int32, b : String, c : Int32
 
   describe "#zip_record" do
     a = [1, 2]
     b = ["a", "b"]
-    c = zip_record(Rec, a, b)
-    it { c[0].should eq Rec.new(1, "a") }
-    it { c[1].should eq Rec.new(2, "b") }
+    c = [3, 4]
+    c = zip_record(Rec, a, b, c)
+    it { c[0].should eq Rec.new(1, "a", 3) }
+    it { c[1].should eq Rec.new(2, "b", 4) }
   end
 end
