@@ -21,7 +21,7 @@ $$
 となる. このような $i$ の個数は
 
 $$
-\left\lfloor \frac{N}{k} \right\rfloor - \left\lfloor \frac{N}{k+1} \right\rfloor
+\floor{\frac{N}{k}} - \floor{\frac{N}{k+1}}
 $$
 
-個である. これを $k = 1, 2, \dots, \lfloor \sqrt{N} \rfloor$ まで計算する. こうするとおおよそ $i \gt \sqrt{N}$ の範囲は計算できたので, 残りの範囲は愚直に計算する.
+個である. これを $k = 1, 2, \dots, \floor{\sqrt{N}}$ まで計算する. こうするとおおよそ $i \gt \sqrt{N}$ の範囲は計算できたので, 残りの範囲は愚直に計算する.

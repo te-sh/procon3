@@ -29,7 +29,11 @@ module.exports = {
           {
             resolve: `gatsby-remark-katex`,
             options: {
-              strict: `ignore`
+              strict: `ignore`,
+              macros: {
+                "\\floor": "\\left\\lfloor #1 \\right\\rfloor",
+                "\\ceil": "\\left\\lceil #1 \\right\\rceil"
+              }
             }
           }
         ],
