@@ -14,11 +14,8 @@ module UtilSpec
 
   record Rec, a : Int32, b : String, c : Int32
 
-  describe "#zip_record" do
-    a = [1, 2]
-    b = ["a", "b"]
-    c = [3, 4]
-    c = zip_record(Rec, a, b, c)
+  describe "#records" do
+    c = records(Rec, [{1, "a", 3}, {2, "b", 4}])
     it { c[0].should eq Rec.new(1, "a", 3) }
     it { c[1].should eq Rec.new(2, "b", 4) }
   end
