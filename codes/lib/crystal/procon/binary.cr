@@ -1,4 +1,7 @@
 # :::::::::::::::::::: procon/binary
+#
+# 二項演算を行う Proc を生成します
+#
 module Binary(T)
   extend self
 
@@ -21,3 +24,4 @@ module Binary(T)
     a * b
   end
 end
+# ::::::::::::::::::::

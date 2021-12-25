@@ -14,9 +14,9 @@ macro max_u(a, b)
 end
 
 #
-# 複数の配列を zip でまとめて record の配列に入れます
+# タプルの配列を record の配列に変換します
 #
-macro zip_record(rec, a, *b)
-  {{a}}.zip(*{{b}}).map { |v| {{rec}}.new(*v) }
+macro records(rec, a)
+  {{a}}.map { |v| {{rec}}.new(*v) }
 end
 # ::::::::::::::::::::

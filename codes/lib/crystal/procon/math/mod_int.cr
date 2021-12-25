@@ -73,21 +73,21 @@ abstract struct ModInt < Number
   end
 
   #
-  # self + r を計算します
+  # self + r を返します
   #
   def +(r : self)
     m(@v + r.v)
   end
 
   #
-  # self + r を計算します
+  # self + r を返します
   #
   def +(r : Int)
     self + m(r)
   end
 
   #
-  # self - r を計算します
+  # self - r を返します
   #
   def -(r : self)
     m(@v - r.v)
@@ -101,35 +101,35 @@ abstract struct ModInt < Number
   end
 
   #
-  # self * r を計算します
+  # self * r を返します
   #
   def *(r : self)
     m(@v * r.v)
   end
 
   #
-  # self * r を計算します
+  # self * r を返します
   #
   def *(r : Int)
     self * m(r)
   end
 
   #
-  # self // r を計算します
+  # self // r を返します
   #
   def //(r : self)
     self * r.inv
   end
 
   #
-  # self // r を計算します
+  # self // r を返します
   #
   def //(r : Int)
     self // m(r)
   end
 
   #
-  # self ** n を計算します
+  # self ** n を返します
   #
   def **(n : Int)
     powr(self, n)
@@ -144,14 +144,14 @@ abstract struct ModInt < Number
   end
 
   #
-  # array の各要素を ModInt にします
+  # 配列の各要素を ModInt にしたものを返します
   #
   def self.array(v : Array(Int))
     v.map { |vi| new(vi) }
   end
 
   #
-  # array の各要素を ModInt にします
+  # 配列の配列の各要素を ModInt にしたものを返します
   #
   def self.array(v : Array(Array(Int)))
     v.map { |vi| vi.map { |vij| new(vij) } }

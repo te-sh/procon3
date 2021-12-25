@@ -2,9 +2,10 @@
 
 def solve(io)
   n, d = io.get2(Int32)
-  l, r = io.get2_c(n, Int32)
+  w = records(Wall, io.get2_t(n, Int32))
 
-  w = zip_record(Wall, l, r).sort_by(&.r)
+  w.sort_by!(&.r)
+
   p = -d
   c = 0
   w.each do |wi|
