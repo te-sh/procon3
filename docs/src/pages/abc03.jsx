@@ -30,6 +30,9 @@ const IndexPage = () => (
           <td><Article to="229/c">C問題</Article></td>
           <td><Article to="229/d">D問題</Article></td>
           <td><Article to="229/e">E問題</Article></td>
+          <td><Article to="229/f">F問題</Article></td>
+          <td>G問題</td>
+          <td>H問題</td>
         </tr>
       </tbody>
     </table>
