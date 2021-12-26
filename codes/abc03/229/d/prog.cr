@@ -8,7 +8,7 @@ def solve(io)
   t = s.chars.map { |si| si == '.' ? 1 : 0 }
   ct = CumulativeSum.new(t)
 
-  puts (0...n).map { |i| (0..n-i).rbsearch { |j| ct[i, j] <= k }.not_nil! }.max
+  io.put (0...n).map { |i| (0..n-i).rbsearch { |j| ct[i, j] <= k }.not_nil! }.max
 end
 
 require "procon"

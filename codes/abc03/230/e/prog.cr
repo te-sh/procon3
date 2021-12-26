@@ -15,7 +15,7 @@ def solve(io)
     s += k
   end
 
-  puts s
+  io.put s
 end
 
 require "procon"

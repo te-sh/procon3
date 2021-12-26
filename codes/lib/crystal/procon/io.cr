@@ -104,6 +104,41 @@ class ProconIO
   end
   define_getn_c
 
+  #
+  # 値を出力します
+  #
+  def put(*v)
+    @outs.puts(*v)
+  end
+
+  #
+  # 値を空白区切りで出力します
+  #
+  def put_a(*v)
+    put_d(*v, delimiter: ' ')
+  end
+
+  #
+  # 値を空白区切りで出力します
+  #
+  def put_c(*v)
+    put_d(*v, delimiter: '\n')
+  end
+
+  #
+  # 値を delimiter 区切りで出力します
+  #
+  def put_d(*v, delimiter)
+    v.each_with_index do |vi, i|
+      vi.each_with_index do |vij, j|
+        @outs.print vij
+        @outs.print delimiter if j < vi.size - 1
+      end
+      @outs.print delimiter if i < v.size - 1
+    end
+    @outs.puts
+  end
+
   # ---------- private methods
 
   private def get_v(k : String.class); get_token; end

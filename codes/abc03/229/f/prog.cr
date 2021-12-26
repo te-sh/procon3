@@ -19,7 +19,7 @@ def solve(io)
     end
   end
 
-  puts({dp[-1][0][0] + b[-1], dp[-1][0][1], dp[-1][1][0], dp[-1][1][1] + b[-1]}.min)
+  io.put({dp[-1][0][0] + b[-1], dp[-1][0][1], dp[-1][1][0], dp[-1][1][1] + b[-1]}.min)
 end
 
 require "procon"

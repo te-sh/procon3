@@ -5,9 +5,9 @@ def solve(io)
 
   ad, bd = a.digits, b.digits
   if (0...{ad.size, bd.size}.min).any? { |i| ad[i] + bd[i] >= 10 }
-    puts "Hard"
+    io.put "Hard"
   else
-    puts "Easy"
+    io.put "Easy"
   end
 end
 

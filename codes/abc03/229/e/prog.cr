@@ -18,7 +18,7 @@ def solve(io)
     end
   end
 
-  r.reverse.each { |ri| puts ri }
+  io.put_c r.reverse
 end
 
 require "procon"

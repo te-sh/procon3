@@ -3,7 +3,7 @@
 def solve(io)
   n = gets.not_nil!.chomp.to_i
   n += 1 if n >= 42
-  puts sprintf("AGC%03d", n)
+  io.put sprintf("AGC%03d", n)
 end
 
 require "procon"

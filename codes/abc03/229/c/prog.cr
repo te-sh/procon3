@@ -13,7 +13,7 @@ def solve(io)
     w -= d
   end
 
-  puts s
+  io.put s
 end
 
 record Cheeze, a : Int64, b : Int32

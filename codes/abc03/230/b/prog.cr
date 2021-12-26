@@ -4,7 +4,7 @@ def solve(io)
   s = io.get(String)
   n = s.size
   t = "oxx" * 5
-  puts (0..2).any? { |i| s == t[i, n] } ? "Yes" : "No"
+  io.put (0..2).any? { |i| s == t[i, n] } ? "Yes" : "No"
 end
 
 require "procon"

@@ -5,9 +5,9 @@ def solve(io)
   s2 = io.get(String)
 
   if {s1, s2} == {"#.", ".#"} || {s1, s2} == {".#", "#."}
-    puts "No"
+    io.put "No"
   else
-    puts "Yes"
+    io.put "Yes"
   end
 end
 

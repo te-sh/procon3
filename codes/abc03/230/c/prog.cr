@@ -5,9 +5,7 @@ def solve(io)
   p, q, r, s = io.get4(Int64)
 
   g = (p..q).map { |i| (r..s).map { |j| (i-a).abs == (j-b).abs ? '#' : '.' } }
-  g.each do |row|
-    puts row.join
-  end
+  io.put_c g.map(&.join)
 end
 
 require "procon"

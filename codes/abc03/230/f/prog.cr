@@ -18,7 +18,7 @@ def solve(io)
     dp[b[i]] = dpn
   end
 
-  puts dp[b.last]
+  io.put dp[b.last]
 end
 
 require "procon"

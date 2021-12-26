@@ -15,7 +15,7 @@ def solve(io)
     end
   end
 
-  puts c
+  io.put c
 end
 
 record Wall, l : Int32, r : Int32
