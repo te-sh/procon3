@@ -1,5 +1,5 @@
 import React from "react"
-import { graphql } from "gatsby"
+import { Link, graphql } from "gatsby"
 
 import "katex/dist/katex.min.css"
 
@@ -10,6 +10,12 @@ const Article = ({ data }) => {
 
   return (
     <Layout>
+      <div>
+        <Link to={article.frontmatter.url}
+              style={{float: 'right'}} target="_blank">
+          問題
+        </Link>
+      </div>
       <h1>{article.frontmatter.title}</h1>
       <div dangerouslySetInnerHTML={{ __html: article.html }} />
     </Layout>
@@ -21,6 +27,7 @@ query($slug: String!) {
   markdownRemark(fields: { slug: { eq: $slug } }) {
     html
     frontmatter {
+      url
       title
     }
   }
