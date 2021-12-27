@@ -7,31 +7,15 @@ module Binary(T)
 
   def procs
     {
-      "+": ->add(T, T),
-      "*": ->mul(T, T),
-      min: -> min(T, T),
-      max: -> max(T, T)
+      "+": ->(a : T, b : T) { a + b },
+      "*": ->(a : T, b : T) { a * b },
+      min: ->(a : T, b : T) { Math.min(a, b) },
+      max: ->(a : T, b : T) { Math.max(a, b) }
     }
   end
 
   def get(op : Symbol)
     procs[op]
-  end
-
-  def add(a : T, b : T)
-    a + b
-  end
-
-  def mul(a : T, b : T)
-    a * b
-  end
-
-  def min(a : T, b : T)
-    Math.min(a, b)
-  end
-
-  def max(a : T, b : T)
-    Math.max(a, b)
   end
 end
 # ::::::::::::::::::::
