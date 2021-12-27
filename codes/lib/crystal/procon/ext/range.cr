@@ -1,4 +1,4 @@
-# :::::::::::::::::::: procon/rbsearch
+# :::::::::::::::::::: procon/ext/range
 struct Range(B, E)
   #
   # block の結果が true となる最大の値を返します
