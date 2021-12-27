@@ -1,7 +1,8 @@
 import React from "react"
-import { Link, graphql } from "gatsby"
+import { graphql } from "gatsby"
 
 import "katex/dist/katex.min.css"
+import "./article.css"
 
 import Layout from "../components/layout"
 
@@ -10,14 +11,15 @@ const Article = ({ data }) => {
 
   return (
     <Layout>
-      <div>
-        <Link to={article.frontmatter.url}
-              style={{float: 'right'}} target="_blank">
+      <div className="article-problem">
+        <a href={article.frontmatter.url}
+           style={{float: 'right'}} target="_blank">
           問題
-        </Link>
+        </a>
       </div>
       <h1>{article.frontmatter.title}</h1>
-      <div dangerouslySetInnerHTML={{ __html: article.html }} />
+      <div className="article-main"
+           dangerouslySetInnerHTML={{ __html: article.html }} />
     </Layout>
   )
 }

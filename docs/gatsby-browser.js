@@ -4,5 +4,7 @@
  * See: https://www.gatsbyjs.com/docs/browser-apis/
  */
 
-import "@fontsource/sawarabi-mincho"
 import "@fontsource/noto-sans-jp"
+import "@fontsource/noto-serif-jp"
+import "@fontsource/sawarabi-mincho"
+import "@fontsource/kiwi-maru"

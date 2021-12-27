@@ -1,0 +1,7 @@
+table.problems {
+  font-family: "Kiwi Maru", sans;
+}
+
+table.problems tr {
+  border-bottom: 1px solid hsla(0, 0%, 0%, 0.12);
+}

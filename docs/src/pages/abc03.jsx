@@ -3,6 +3,8 @@ import { Link } from "gatsby"
 
 import Layout from "../components/layout"
 
+import "./problems.css"
+
 const Article = ({ children, to }) => (
   <Link to={`/articles/abc03/${to}`}>{children}</Link>
 )
@@ -10,7 +12,7 @@ const Article = ({ children, to }) => (
 const IndexPage = () => (
   <Layout>
     <h1>ABC Part3</h1>
-    <table>
+    <table className="problems">
       <tbody>
         <tr>
           <td>#230</td>

@@ -5,7 +5,9 @@
   "version": "0.1.0",
   "author": "Kyle Mathews <mathews.kyle@gmail.com>",
   "dependencies": {
+    "@fontsource/kiwi-maru": "^4.5.3",
     "@fontsource/noto-sans-jp": "^4.5.2",
+    "@fontsource/noto-serif-jp": "^4.5.2",
     "@fontsource/sawarabi-mincho": "^4.5.0",
     "gatsby": "^4.3.0",
     "gatsby-plugin-gatsby-cloud": "^4.3.0",
