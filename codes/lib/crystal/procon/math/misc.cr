@@ -1,6 +1,5 @@
-require "procon"
-
 # :::::::::::::::::::: procon/math/misc
+require "procon"
 require "procon/binary"
 
 #

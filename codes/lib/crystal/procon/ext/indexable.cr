@@ -6,7 +6,7 @@ module Indexable(T)
   def rbsearch_index(&block : T, Int32 -> _)
     s = self.bsearch_index { |v, i| !block.call(v, i) }
     if s.nil?
-      self.size
+      self.size - 1
     elsif s == 0
       nil
     else
