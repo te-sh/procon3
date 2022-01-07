@@ -105,6 +105,13 @@ class ProconIO
   define_getn_c
 
   #
+  # 型を指定して行列の値を読み込みます
+  #
+  def get_m(r : Int, c : Int, k : T.class = Int32) forall T
+    Array.new(r) { get_a(c, k) }
+  end
+
+  #
   # 値を出力します
   #
   def put(*v)
@@ -119,7 +126,7 @@ class ProconIO
   end
 
   #
-  # 値を空白区切りで出力します
+  # 値を改行区切りで出力します
   #
   def put_c(*v)
     put_d(*v, delimiter: '\n')
