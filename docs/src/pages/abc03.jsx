@@ -61,6 +61,7 @@ const IndexPage = () => (
         <tr>
           <td>#226</td>
           <td><Article to="226/a">A問題</Article></td>
+          <td><Article to="226/b">B問題</Article></td>
         </tr>
       </tbody>
     </table>
