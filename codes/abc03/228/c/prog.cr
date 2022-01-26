@@ -16,4 +16,6 @@ end
 
 require "procon"
 
+require "procon/rbsearch"
+
 solve(ProconIO.new)

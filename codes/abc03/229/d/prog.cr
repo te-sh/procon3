@@ -13,6 +13,8 @@ end
 
 require "procon"
 
+require "procon/rbsearch"
+
 require "procon/data_structure/cumulative_sum"
 
 solve(ProconIO.new)

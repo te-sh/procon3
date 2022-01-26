@@ -1,4 +1,20 @@
-# :::::::::::::::::::: procon/ext/range
+# :::::::::::::::::::: procon/rbsearch
+module Indexable(T)
+  #
+  # block の結果が true となる最大のインデックスを返します
+  #
+  def rbsearch_index(&block : T, Int32 -> _)
+    s = self.bsearch_index { |v, i| !block.call(v, i) }
+    if s.nil?
+      self.size - 1
+    elsif s == 0
+      nil
+    else
+      s - 1
+    end
+  end
+end
+
 struct Range(B, E)
   #
   # block の結果が true となる最大の値を返します

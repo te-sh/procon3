@@ -5,6 +5,4 @@ require "procon/ext/number"
 require "procon/ext/int"
 require "procon/ext/array"
 require "procon/ext/math"
-require "procon/ext/range"
-require "procon/ext/indexable"
 # ::::::::::::::::::::
