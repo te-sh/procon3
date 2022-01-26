@@ -13,7 +13,7 @@ const Article = ({ data }) => {
     <Layout>
       <div className="article-problem">
         <a href={article.frontmatter.url}
-           style={{float: 'right'}} target="_blank">
+           style={{float: 'right'}} target="_blank" rel="noreferrer">
           問題
         </a>
       </div>
