@@ -119,6 +119,14 @@ class ProconIO
   end
 
   #
+  # 値を出力して終了します
+  #
+  def put_e(*v)
+    put(*v)
+    exit
+  end
+
+  #
   # 値を空白区切りで出力します
   #
   def put_a(*v)
@@ -126,10 +134,26 @@ class ProconIO
   end
 
   #
+  # 値を空白区切りで出力して終了します
+  #
+  def put_ae(*v)
+    put_a(*v)
+    exit
+  end
+
+  #
   # 値を改行区切りで出力します
   #
   def put_c(*v)
     put_d(*v, delimiter: '\n')
+  end
+
+  #
+  # 値を改行区切りで出力して終了します
+  #
+  def put_ce(*v)
+    put_c(*v)
+    exit
   end
 
   #

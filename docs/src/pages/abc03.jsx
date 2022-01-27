@@ -70,9 +70,10 @@ const IndexPage = () => (
           <td>H問題</td>
         </tr>
         <tr>
-          <td>#226</td>
+          <td>#225</td>
           <td><Article to="225/a">A問題</Article></td>
           <td><Article to="225/b">B問題</Article></td>
+          <td><Article to="225/c">C問題</Article></td>
         </tr>
       </tbody>
     </table>
