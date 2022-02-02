@@ -9,7 +9,7 @@ const Article = ({ children, to }) => (
   <Link to={`/articles/abc03/${to}`}>{children}</Link>
 )
 
-const IndexPage = () => (
+const Abc03Page = () => (
   <Layout>
     <h1>ABC Part3</h1>
     <table className="problems">
@@ -82,4 +82,4 @@ const IndexPage = () => (
   </Layout>
 )
 
-export default IndexPage
+export default Abc03Page
