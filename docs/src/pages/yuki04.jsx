@@ -18,6 +18,7 @@ const Yuki04Page = () => (
           <td><Article to="1750/1701">No.1701</Article></td>
           <td><Article to="1750/1702">No.1702</Article></td>
           <td><Article to="1750/1703">No.1703</Article></td>
+          <td><Article to="1750/1704">No.1704</Article></td>
         </tr>
       </tbody>
     </table>
