@@ -62,8 +62,9 @@ class JudgeRunner:
             if self.url_memo.changed(url):
                 self.download(url)
                 self.url_memo.write(url)
-            self.compile()
-            self.test()
+            runner = self.get_runner()
+            runner.compile()
+            runner.test()
             self.run_time_memo.write()
 
         except subprocess.CalledProcessError:
@@ -85,6 +86,15 @@ class JudgeRunner:
         print(f'$ oj download {url}')
         shutil.rmtree('test', ignore_errors=True)
         subprocess.run(['oj', 'download', url], check=True)
+
+    def get_runner(self):
+        if self.path.suffix == '.cr':
+            return RunnerCrystal(self.path)
+
+
+class RunnerCrystal:
+    def __init__(self, path):
+        self.path = path
 
     def compile(self):
         print('--- compile')

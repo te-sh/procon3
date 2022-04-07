@@ -7,7 +7,6 @@ services:
     image: tesh/procon-judge
     container_name: projdg
     init: true
-    tty: true
     volumes:
       - './judge:/judge'
       - './codes:/codes'
