@@ -9,6 +9,7 @@ const IndexPage = () => (
     <h1>ABC</h1>
     <ul className="sites">
       <li><Link to="/abc03">ABC Part.3</Link></li>
+      <li><Link to="/training">ABC Training</Link></li>
     </ul>
 
     <h1>Yukicoder</h1>

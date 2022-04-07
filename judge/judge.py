@@ -91,6 +91,8 @@ class JudgeRunner:
     def get_runner(self):
         if self.path.suffix == '.cr':
             return RunnerCrystal(self.path)
+        elif self.path.suffix == '.py':
+            return RunnerPython(self.path)
 
 
 class RunnerCrystal:
@@ -106,6 +108,19 @@ class RunnerCrystal:
         print('--- test')
         print('oj test')
         subprocess.run(['oj', 'test'], check=True)
+
+
+class RunnerPython:
+    def __init__(self, path):
+        self.path = path
+
+    def compile(self):
+        pass
+
+    def test(self):
+        print('--- test')
+        print(f'oj test -c "pypy3 {self.path.name}"')
+        subprocess.run(['oj', 'test', '-c', f'pypy3 {self.path.name}'], check=True)
 
 
 class ChangeHandler(FileSystemEventHandler):
