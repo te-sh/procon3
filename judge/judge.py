@@ -5,6 +5,7 @@ import shutil
 import subprocess
 import time
 
+from termcolor import colored
 from watchdog.events import FileSystemEventHandler
 from watchdog.observers import Observer
 
@@ -51,7 +52,7 @@ class JudgeRunner:
         if not self.run_time_memo.passed_time():
             return
 
-        print('====================', self.path)
+        print(colored('==================== ' + str(self.path), attrs=['bold']))
 
         self.chdir()
         url = self.get_url()
