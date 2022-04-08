@@ -125,13 +125,13 @@ class RunnerPython:
 
 class ChangeHandler(FileSystemEventHandler):
     def on_created(self, event):
-        self.on_changed(event.src_path)
+        self.on_changed(event)
 
     def on_modified(self, event):
-        self.on_changed(event.src_path)
+        self.on_changed(event)
 
-    def on_changed(self, src_path):
-        path = pathlib.Path(src_path)
+    def on_changed(self, event):
+        path = pathlib.Path(event.src_path)
 
         if not path.exists() or path.is_dir():
             return
