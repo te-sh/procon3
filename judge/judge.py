@@ -7,7 +7,7 @@ import time
 
 from termcolor import colored
 from watchdog.events import FileSystemEventHandler
-from watchdog.observers import Observer
+from watchdog.observers.polling import PollingObserver
 
 
 class UrlMemo:
@@ -146,10 +146,17 @@ class ChangeHandler(FileSystemEventHandler):
 
 
 if __name__ == '__main__':
+    print('*** Starting judge')
+
     event_handler = ChangeHandler()
-    observer = Observer()
-    observer.schedule(event_handler, '/codes', recursive=True)
+    observer = PollingObserver()
+    print('observer:', observer)
+
+    watch = observer.schedule(event_handler, '/codes', recursive=True)
+    print('watch:', watch)
+
     observer.start()
+    print('*** Started watching')
 
     try:
         while True:

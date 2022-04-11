@@ -1,7 +1,7 @@
 FROM python:3.10.4-slim-bullseye
 
 RUN apt-get update \
- && apt-get install -y curl inotify-tools pypy3 sudo time \
+ && apt-get install -y curl pypy3 sudo time \
  && groupadd -g 1000 appgroup \
  && useradd -m -s /bin/bash -u 1000 -g 1000 -G sudo,root appuser \
  && echo '%sudo ALL=(ALL) NOPASSWD:ALL' >> /etc/sudoers \
