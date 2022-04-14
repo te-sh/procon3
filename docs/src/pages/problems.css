@@ -6,3 +6,7 @@ table.problems {
 table.problems tr {
   border-bottom: 1px solid hsla(0, 0%, 0%, 0.12);
 }
+
+table.problems td {
+  padding: 0.25rem;
+}
