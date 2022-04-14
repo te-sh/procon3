@@ -21,6 +21,7 @@ const Training = () => (
           <td><Article to="easy/003">#3</Article></td>
           <td><Article to="easy/004">#4</Article></td>
           <td><Article to="easy/005">#5</Article></td>
+          <td><Article to="easy/006">#6</Article></td>
         </tr>
       </tbody>
     </table>
@@ -34,6 +35,7 @@ const Training = () => (
           <td><Article to="medium/003">#3</Article></td>
           <td><Article to="medium/004">#4</Article></td>
           <td><Article to="medium/005">#5</Article></td>
+          <td><Article to="medium/006">#6</Article></td>
         </tr>
       </tbody>
     </table>
