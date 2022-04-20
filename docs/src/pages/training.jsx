@@ -56,6 +56,7 @@ const Training = () => (
           <td><Article to="hard/002">#2</Article></td>
           <td><Article to="hard/003">#3</Article></td>
           <td><Article to="hard/004">#4</Article></td>
+          <td><Article to="hard/005">#5</Article></td>
         </tr>
       </tbody>
     </table>
