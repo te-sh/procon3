@@ -31,6 +31,7 @@ module.exports = {
             options: {
               strict: `ignore`,
               macros: {
+                "\\abs": "\\left\\vert #1 \\right\\vert",
                 "\\floor": "\\left\\lfloor #1 \\right\\rfloor",
                 "\\ceil": "\\left\\lceil #1 \\right\\rceil"
               }
