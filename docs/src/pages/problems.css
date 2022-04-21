@@ -9,4 +9,5 @@ table.problems tr {
 
 table.problems td {
   padding: 0.25rem;
+  text-align: center;
 }
