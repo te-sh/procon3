@@ -1,8 +1,8 @@
-FROM node:17.9.0-alpine3.15
+FROM node:18.4.0-alpine3.16
 
 RUN apk update \
  && apk upgrade \
- && apk add git \
+ && apk add git python3 py3-pip build-base \
  && npm install -g npm gatsby-cli
 
 ENV APPDIR /app
