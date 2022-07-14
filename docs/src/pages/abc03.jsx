@@ -85,6 +85,7 @@ const Abc03Page = () => (
           <td><Article to="224/a">A問題</Article></td>
           <td><Article to="224/b">B問題</Article></td>
           <td><Article to="224/c">C問題</Article></td>
+          <td><Article to="224/d">D問題</Article></td>
         </tr>
       </tbody>
     </table>
