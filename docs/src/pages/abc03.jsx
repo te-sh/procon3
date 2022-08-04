@@ -91,6 +91,10 @@ const Abc03Page = () => (
           <td>G問題</td>
           <td>H問題</td>
         </tr>
+        <tr>
+          <td>#223</td>
+          <td><Article to="223/a">A問題</Article></td>
+        </tr>
       </tbody>
     </table>
   </Layout>
